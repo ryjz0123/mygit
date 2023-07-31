@@ -8,7 +8,6 @@ public class User implements Serializable {
     private String userId;  //用户名
     private String password;  //用户密码
 
-    public User(){}
     public User(String userId, String password) {
         this.userId = userId;
         this.password = password;
