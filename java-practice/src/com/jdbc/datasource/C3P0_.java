@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.FileInputStream;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Properties;
 
 /**
@@ -42,6 +43,16 @@ public class C3P0_ {
         //getConnection() 从DataSource接口实现
         Connection connection = comboPooledDataSource.getConnection();
 
+        System.out.println("连接成功");
+        connection.close();
+    }
+
+    //方式2：使用配置文件模板
+    @Test
+    public void testC3P0_02() throws SQLException {
+        ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource("C3P0");
+
+        Connection connection = comboPooledDataSource.getConnection();
         System.out.println("连接成功");
         connection.close();
     }
